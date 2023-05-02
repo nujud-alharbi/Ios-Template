@@ -9,11 +9,17 @@ import UIKit
 
 class homeViewController: UIViewController {
 
+    
+//
+//    let changeLanguage = UIButton()
+//
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        view.backgroundColor = .systemMint
+        localizationView()
+
     }
-
-
+//
+//
 }
 
