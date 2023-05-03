@@ -14,6 +14,10 @@
 		04853BC92A007FA500AFD400 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04853BC72A007FA500AFD400 /* LaunchScreen.storyboard */; };
 		04893CEE2A00967400213D88 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04893CF02A00967400213D88 /* Localizable.strings */; };
 		04893CF32A00A56A00213D88 /* localizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04893CF22A00A56A00213D88 /* localizationView.swift */; };
+		3771FAC92A027E5100B2196C /* darkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771FAC82A027E5100B2196C /* darkTheme.swift */; };
+		3771FACB2A027E6100B2196C /* lightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771FACA2A027E6100B2196C /* lightTheme.swift */; };
+		3771FACD2A027E7000B2196C /* theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771FACC2A027E7000B2196C /* theme.swift */; };
+		3771FACF2A027EA600B2196C /* themeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771FACE2A027EA600B2196C /* themeProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +33,10 @@
 		04893CEF2A00967400213D88 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		04893CF12A00967B00213D88 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		04893CF22A00A56A00213D88 /* localizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = localizationView.swift; sourceTree = "<group>"; };
+		3771FAC82A027E5100B2196C /* darkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = darkTheme.swift; sourceTree = "<group>"; };
+		3771FACA2A027E6100B2196C /* lightTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lightTheme.swift; sourceTree = "<group>"; };
+		3771FACC2A027E7000B2196C /* theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = theme.swift; sourceTree = "<group>"; };
+		3771FACE2A027EA600B2196C /* themeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = themeProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +93,7 @@
 		04893CF52A0131C200213D88 /* core */ = {
 			isa = PBXGroup;
 			children = (
+				3771FAC72A027E2D00B2196C /* theme */,
 				04893CF72A01321600213D88 /* localization */,
 			);
 			path = core;
@@ -111,6 +120,17 @@
 			children = (
 			);
 			path = logic;
+			sourceTree = "<group>";
+		};
+		3771FAC72A027E2D00B2196C /* theme */ = {
+			isa = PBXGroup;
+			children = (
+				3771FAC82A027E5100B2196C /* darkTheme.swift */,
+				3771FACA2A027E6100B2196C /* lightTheme.swift */,
+				3771FACC2A027E7000B2196C /* theme.swift */,
+				3771FACE2A027EA600B2196C /* themeProtocol.swift */,
+			);
+			path = theme;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,8 +207,12 @@
 			files = (
 				04853BC12A007FA500AFD400 /* homeViewController.swift in Sources */,
 				04893CF32A00A56A00213D88 /* localizationView.swift in Sources */,
+				3771FACB2A027E6100B2196C /* lightTheme.swift in Sources */,
+				3771FACF2A027EA600B2196C /* themeProtocol.swift in Sources */,
 				04853BBD2A007FA500AFD400 /* AppDelegate.swift in Sources */,
+				3771FACD2A027E7000B2196C /* theme.swift in Sources */,
 				04853BBF2A007FA500AFD400 /* SceneDelegate.swift in Sources */,
+				3771FAC92A027E5100B2196C /* darkTheme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
