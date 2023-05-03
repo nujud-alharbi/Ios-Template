@@ -20,7 +20,7 @@ class LocalizationView: UIView {
     
     let changeLanguageButton: CustomButton = {
         
-        let changeLanguage = CustomButton(title: "language", t: "String")
+        let changeLanguage = CustomButton(title: "language", comment : "String")
                                             
                                             
                                             
@@ -73,17 +73,11 @@ class LocalizationView: UIView {
           languageLabel.text = "Language"
           languageLabel.tintColor = .systemGray
           
-//          languageImage.frame = CGRect(x : 20, y : 100, width : 20 , height: languageImage.frame.height + 20)
-//          languageLabel.frame = CGRect(x : 50 , y : 100, width : 100 , height: 20)
-//       changeLanguage.frame = CGRect(x : 250 , y : 100, width : 100 , height: 20)
-          
-          changeLanguageButton.configuration = .filled()
-          changeLanguageButton.configuration?.baseBackgroundColor = .systemRed
 
-//          changeLanguage.configuration?.title = NSLocalizedString("language", comment: " hello label")
-//          changeLanguage.addTarget(self, action: #selector(localization)
-//                                      , for: .touchUpInside)
-//
+          changeLanguageButton.configuration = .filled()
+         changeLanguageButton.configuration?.baseBackgroundColor = .black
+
+
           languageLabel.translatesAutoresizingMaskIntoConstraints = false
           changeLanguageButton.translatesAutoresizingMaskIntoConstraints = false
           

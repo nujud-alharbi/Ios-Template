@@ -18,10 +18,11 @@ class CustomButton: UIButton {
       
     }
     
-    init(title : String , t : String){
+    init(title : String , comment : String){
         super.init(frame: .zero)
-        backgroundColor = .purple
-        setTitle( LocalizationSystem.sharedInstance.localizedStringForKey(key: title, comment: t), for: .normal)
+        backgroundColor = .black
+        
+        setTitle( NSLocalizedString(title, comment: comment), for: .normal)
         setTitleColor(.white, for: .normal)
          layer.cornerRadius = 8
         titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
