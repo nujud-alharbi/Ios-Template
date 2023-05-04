@@ -12,13 +12,6 @@ import UIKit
 class Localization {
     
     func changeLanguage (){
-     
-        
-        
-        
-   
-
-        
         
         let currentLanguage =  Locale.current.languageCode
         let newLanguage = currentLanguage == "en" ? "ar" : "en"

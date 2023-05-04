@@ -6,4 +6,8 @@
   
 */
 
-"language" = "Language";
+"language" = "English";
+"changeLang" = " Language";
+"authButton" = "Authentication";
+"profileButton" = "Profile";
+"crudButton" = "CRUD";
