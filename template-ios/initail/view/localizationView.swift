@@ -9,6 +9,9 @@ import UIKit
 
 class HomeView: UIView {
     
+    
+    
+    
 //    ---------------------------- properties
     
     let languageImage = UIImageView()

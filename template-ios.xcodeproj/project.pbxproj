@@ -15,6 +15,7 @@
 		04853BC92A007FA500AFD400 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04853BC72A007FA500AFD400 /* LaunchScreen.storyboard */; };
 		0486DC6B2A041EFF0080375D /* languageKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486DC6A2A041EFF0080375D /* languageKey.swift */; };
 		0486DC6D2A0431D00080375D /* signUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486DC6C2A0431D00080375D /* signUpViewController.swift */; };
+		0486DC752A044E550080375D /* localizationSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486DC742A044E550080375D /* localizationSystem.swift */; };
 		048864E42A01AC1000CB2206 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048864E32A01AC1000CB2206 /* CustomButton.swift */; };
 		048906492A03DE2C004F3CBB /* constraintUIview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048906482A03DE2C004F3CBB /* constraintUIview.swift */; };
 		04893CEE2A00967400213D88 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04893CF02A00967400213D88 /* Localizable.strings */; };
@@ -34,6 +35,7 @@
 		04853BD22A00899400AFD400 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		0486DC6A2A041EFF0080375D /* languageKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = languageKey.swift; sourceTree = "<group>"; };
 		0486DC6C2A0431D00080375D /* signUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpViewController.swift; sourceTree = "<group>"; };
+		0486DC742A044E550080375D /* localizationSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = localizationSystem.swift; sourceTree = "<group>"; };
 		048864E32A01AC1000CB2206 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		048906482A03DE2C004F3CBB /* constraintUIview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constraintUIview.swift; sourceTree = "<group>"; };
 		04893CEF2A00967400213D88 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -76,7 +78,7 @@
 				04893CF42A0131AA00213D88 /* common */,
 				04893CF52A0131C200213D88 /* core */,
 				04893CF62A0131EC00213D88 /* feature */,
-				0489064A2A03E917004F3CBB /* inital */,
+				0489064A2A03E917004F3CBB /* initail */,
 				04853BC52A007FA500AFD400 /* Assets.xcassets */,
 				04853BC72A007FA500AFD400 /* LaunchScreen.storyboard */,
 				04853BCA2A007FA500AFD400 /* Info.plist */,
@@ -148,13 +150,13 @@
 			path = extension;
 			sourceTree = "<group>";
 		};
-		0489064A2A03E917004F3CBB /* inital */ = {
+		0489064A2A03E917004F3CBB /* initail */ = {
 			isa = PBXGroup;
 			children = (
 				04853BC02A007FA500AFD400 /* homeViewController.swift */,
 				0489064B2A03E939004F3CBB /* view */,
 			);
-			path = inital;
+			path = initail;
 			sourceTree = "<group>";
 		};
 		0489064B2A03E939004F3CBB /* view */ = {
@@ -196,6 +198,7 @@
 			children = (
 				04893CF82A01322E00213D88 /* logic */,
 				04893CF02A00967400213D88 /* Localizable.strings */,
+				0486DC742A044E550080375D /* localizationSystem.swift */,
 			);
 			path = localization;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				04853BBF2A007FA500AFD400 /* SceneDelegate.swift in Sources */,
 				048864E42A01AC1000CB2206 /* CustomButton.swift in Sources */,
 				0486DC6D2A0431D00080375D /* signUpViewController.swift in Sources */,
+				0486DC752A044E550080375D /* localizationSystem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
