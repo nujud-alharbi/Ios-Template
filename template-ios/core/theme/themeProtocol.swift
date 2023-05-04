@@ -12,6 +12,8 @@ protocol ThemeProtocol {
     var accent : UIColor {get}
     var background : UIColor {get}
     var tint : UIColor {get}
+    var iconesun : UIColor {get}
+    
 
 }
 

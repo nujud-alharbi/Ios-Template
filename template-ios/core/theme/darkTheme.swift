@@ -14,5 +14,7 @@ class DarkTheme : ThemeProtocol {
     
     var tint: UIColor = UIColor(named: "Tint")!
     
+    var iconesun: UIColor = UIColor(named: "Sunicone")!
+    
 }
 

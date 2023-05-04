@@ -7,22 +7,42 @@
 import UIKit
 
 class ThemeController: UIViewController {
+    
+    let defaults = UserDefaults.standard
+    var DarkisOn = Bool()
+    let darkMode = "darkModeEnabled"
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidLoad()
+
+        let darkModeEnabled = defaults.bool(forKey: darkMode)
+        if darkModeEnabled {
+            // Apply your dark theme
+            defaults.set(false, forKey: darkMode)
+        } else {
+            self.view.backgroundColor = UIColor.systemBackground
+            defaults.set(true, forKey: darkMode)
+           
+        }
+    }
 
     override func viewDidLoad() {
+    
         view.backgroundColor = .systemBackground
-        super.viewDidLoad()
-        
         let StyleButton = UIButton()
-                StyleButton.setTitle("Dark mode", for: .normal)
-                StyleButton.setImage(UIImage(systemName: "search"), for: .normal)
-                StyleButton.setTitleColor(.tintColor, for: .normal)
-                StyleButton.frame = CGRect(x: 180, y: -130, width: 250, height: 500)
-                StyleButton.addTarget(self, action: #selector(toggleInterfaceStyle), for: .touchUpInside)
-                self.view.addSubview(StyleButton)
-            }
+        StyleButton.setImage(UIImage(systemName: "sun.max.fill"), for: .normal)
+        StyleButton.setTitleColor(.blue, for: .normal)
+        StyleButton.tintColor = .blue
+        StyleButton.frame = CGRect(x: 220, y: -130, width: 250, height: 500)
+        //StyleButton.frame.size = CGSize(width: 20.0, height: 20.0)
+        StyleButton.addTarget(self, action: #selector(toggleInterfaceStyle), for: .touchUpInside)
+        self.view.addSubview(StyleButton)
+        
+    }
             
      
     @objc func toggleInterfaceStyle() {
+         
         let scenes = UIApplication.shared.connectedScenes
         let windowScene = scenes.first as? UIWindowScene
         let window = windowScene?.windows.first
@@ -33,7 +53,9 @@ class ThemeController: UIViewController {
         } else {
             window?.overrideUserInterfaceStyle = .light
         }
-    }
+        
         }
+        }
+
 
 
