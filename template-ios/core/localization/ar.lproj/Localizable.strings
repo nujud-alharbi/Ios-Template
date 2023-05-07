@@ -6,4 +6,8 @@
   
 */
 
-"language" = "لغة";
+"language" = "عربي";
+"changeLang" = " اللغة";
+"authButton" = "تسجيل ";
+"profileButton" = "الملف الشخصي";
+"crudButton" = "CRUD";
