@@ -17,6 +17,6 @@ class Localization {
         let newLanguage = currentLanguage == "en" ? "ar" : "en"
         UserDefaults.standard.setValue([newLanguage], forKey: "AppleLanguages")
 
-//        exit(0)
+        exit(0)
     }
 }
