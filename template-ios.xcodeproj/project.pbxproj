@@ -20,6 +20,10 @@
 		048906492A03DE2C004F3CBB /* constraintUIview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048906482A03DE2C004F3CBB /* constraintUIview.swift */; };
 		04893CEE2A00967400213D88 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04893CF02A00967400213D88 /* Localizable.strings */; };
 		04893CF32A00A56A00213D88 /* localizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04893CF22A00A56A00213D88 /* localizationView.swift */; };
+		3771FAC92A027E5100B2196C /* darkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771FAC82A027E5100B2196C /* darkTheme.swift */; };
+		3771FACB2A027E6100B2196C /* lightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771FACA2A027E6100B2196C /* lightTheme.swift */; };
+		3771FACD2A027E7000B2196C /* theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771FACC2A027E7000B2196C /* theme.swift */; };
+		3771FACF2A027EA600B2196C /* themeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771FACE2A027EA600B2196C /* themeProtocol.swift */; };
 		049C9AE12A081B7100952785 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 049C9AE02A081B7100952785 /* GoogleService-Info.plist */; };
 		049C9AE42A081C1D00952785 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 049C9AE32A081C1D00952785 /* FirebaseAuth */; };
 		049C9AE62A081C1D00952785 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 049C9AE52A081C1D00952785 /* FirebaseAuthCombine-Community */; };
@@ -29,6 +33,7 @@
 		049C9AEE2A081C1D00952785 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 049C9AED2A081C1D00952785 /* FirebaseFirestoreSwift */; };
 		049C9AF02A081C1D00952785 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 049C9AEF2A081C1D00952785 /* FirebaseStorage */; };
 		049C9AF22A081C1D00952785 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 049C9AF12A081C1D00952785 /* FirebaseStorageCombine-Community */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,7 +55,12 @@
 		04893CEF2A00967400213D88 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		04893CF12A00967B00213D88 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		04893CF22A00A56A00213D88 /* localizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = localizationView.swift; sourceTree = "<group>"; };
+		3771FAC82A027E5100B2196C /* darkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = darkTheme.swift; sourceTree = "<group>"; };
+		3771FACA2A027E6100B2196C /* lightTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lightTheme.swift; sourceTree = "<group>"; };
+		3771FACC2A027E7000B2196C /* theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = theme.swift; sourceTree = "<group>"; };
+		3771FACE2A027EA600B2196C /* themeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = themeProtocol.swift; sourceTree = "<group>"; };
 		049C9AE02A081B7100952785 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +215,7 @@
 		04893CF52A0131C200213D88 /* core */ = {
 			isa = PBXGroup;
 			children = (
+				3771FAC72A027E2D00B2196C /* theme */,
 				0486DC692A041ED70080375D /* constants */,
 				048906472A03DDDC004F3CBB /* extension */,
 				04893CF72A01321600213D88 /* localization */,
@@ -238,6 +249,15 @@
 			path = logic;
 			sourceTree = "<group>";
 		};
+		3771FAC72A027E2D00B2196C /* theme */ = {
+			isa = PBXGroup;
+			children = (
+				3771FAC82A027E5100B2196C /* darkTheme.swift */,
+				3771FACA2A027E6100B2196C /* lightTheme.swift */,
+				3771FACC2A027E7000B2196C /* theme.swift */,
+				3771FACE2A027EA600B2196C /* themeProtocol.swift */,
+			);
+			path = theme;
 		048C020A2A02C54A009B6EC6 /* controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,12 +356,18 @@
 				0486DC6B2A041EFF0080375D /* languageKey.swift in Sources */,
 				04853BC12A007FA500AFD400 /* homeViewController.swift in Sources */,
 				04893CF32A00A56A00213D88 /* localizationView.swift in Sources */,
+
+				3771FACB2A027E6100B2196C /* lightTheme.swift in Sources */,
+				3771FACF2A027EA600B2196C /* themeProtocol.swift in Sources */,
 				041880002A01D2E800E33CB4 /* localization.swift in Sources */,
 				04853BBD2A007FA500AFD400 /* AppDelegate.swift in Sources */,
+				3771FACD2A027E7000B2196C /* theme.swift in Sources */,
 				04853BBF2A007FA500AFD400 /* SceneDelegate.swift in Sources */,
+				3771FAC92A027E5100B2196C /* darkTheme.swift in Sources */,
 				048864E42A01AC1000CB2206 /* CustomButton.swift in Sources */,
 				0486DC6D2A0431D00080375D /* signUpViewController.swift in Sources */,
 				0486DC752A044E550080375D /* localizationSystem.swift in Sources */,
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
