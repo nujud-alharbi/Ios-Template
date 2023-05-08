@@ -15,6 +15,7 @@ class homeViewController: UIViewController {
 
     
     private let localizationView = HomeView()
+    private let themeview = ThemeView()
 
 
     
@@ -35,10 +36,9 @@ class homeViewController: UIViewController {
     
     
     override func loadView() {
-      
-        
-       view = localizationView;
-      
+        super.viewDidLoad()
+        self.view = HomeView()
+        self.view = ThemeView()
     
 
     }
@@ -48,10 +48,8 @@ class homeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        view.backgroundColor = .white
-     
         settup()
     }
-  
 
 // helper
     
@@ -62,14 +60,11 @@ class homeViewController: UIViewController {
       
         
         view.addSubview(authButton)
-        
-        
 
         authButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             authButton.centerXAnchor.constraint(equalTo: view.centerXAnchor) ,
             authButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-        
             authButton.widthAnchor.constraint(equalToConstant : 200),
             
             authButton.heightAnchor.constraint(equalToConstant: 50),
@@ -102,5 +97,7 @@ class homeViewController: UIViewController {
 
     
 }
+
+
 
 

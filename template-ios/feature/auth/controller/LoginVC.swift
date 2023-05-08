@@ -79,8 +79,7 @@ class LoginVC: UIViewController {
                }
                }
                }
-               }
-               }
+              
   // use  extension
     extension LoginVC {
     func setupUI() {
