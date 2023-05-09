@@ -21,6 +21,7 @@
 		04893CEE2A00967400213D88 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04893CF02A00967400213D88 /* Localizable.strings */; };
 		04893CF32A00A56A00213D88 /* localizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04893CF22A00A56A00213D88 /* localizationView.swift */; };
 		048B70602A097416006E584E /* utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048B705F2A097416006E584E /* utilities.swift */; };
+		048B70622A09A5F5006E584E /* authService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048B70612A09A5F5006E584E /* authService.swift */; };
 		049C9AE12A081B7100952785 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 049C9AE02A081B7100952785 /* GoogleService-Info.plist */; };
 		049C9AE42A081C1D00952785 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 049C9AE32A081C1D00952785 /* FirebaseAuth */; };
 		049C9AE62A081C1D00952785 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 049C9AE52A081C1D00952785 /* FirebaseAuthCombine-Community */; };
@@ -56,6 +57,7 @@
 		04893CF12A00967B00213D88 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		04893CF22A00A56A00213D88 /* localizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = localizationView.swift; sourceTree = "<group>"; };
 		048B705F2A097416006E584E /* utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utilities.swift; sourceTree = "<group>"; };
+		048B70612A09A5F5006E584E /* authService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = authService.swift; sourceTree = "<group>"; };
 		049C9AE02A081B7100952785 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		375F34762A07B609003A10E5 /* lightTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lightTheme.swift; sourceTree = "<group>"; };
 		375F34782A07B61C003A10E5 /* darkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = darkTheme.swift; sourceTree = "<group>"; };
@@ -136,7 +138,6 @@
 			children = (
 				048C020A2A02C54A009B6EC6 /* controller */,
 				048864E12A017D5100CB2206 /* service */,
-				048864E02A017D2000CB2206 /* viewModel */,
 				048864DF2A017D1400CB2206 /* model */,
 				048864DE2A017D0700CB2206 /* view */,
 			);
@@ -157,16 +158,10 @@
 			path = model;
 			sourceTree = "<group>";
 		};
-		048864E02A017D2000CB2206 /* viewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = viewModel;
-			sourceTree = "<group>";
-		};
 		048864E12A017D5100CB2206 /* service */ = {
 			isa = PBXGroup;
 			children = (
+				048B70612A09A5F5006E584E /* authService.swift */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -378,6 +373,7 @@
 				0486DC6D2A0431D00080375D /* signUpViewController.swift in Sources */,
 				0486DC752A044E550080375D /* localizationSystem.swift in Sources */,
 				375F34792A07B61C003A10E5 /* darkTheme.swift in Sources */,
+				048B70622A09A5F5006E584E /* authService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
