@@ -14,8 +14,8 @@ class homeViewController: UIViewController {
     
 
     
-    private let localizationView = HomeView()
-    private let themeview = ThemeView()
+   // private let localizationView = HomeView()
+  private let themeview = ThemeView()
 
 
     
@@ -37,7 +37,7 @@ class homeViewController: UIViewController {
     
     override func loadView() {
         super.viewDidLoad()
-        self.view = HomeView()
+        //self.view = HomeView()
         self.view = ThemeView()
     
 
