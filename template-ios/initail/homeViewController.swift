@@ -12,8 +12,6 @@ class homeViewController: UIViewController {
     
     //  properties
     
-
-
     private let localizationView = HomeView()
     
 
