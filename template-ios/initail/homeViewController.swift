@@ -18,7 +18,7 @@ class homeViewController: UIViewController {
     
 
 
-//    private let themeview = ThemeView()
+   private let themeview = ThemeView()
 
     
     let authButton : CustomButton  = {
@@ -42,7 +42,7 @@ class homeViewController: UIViewController {
       
         
        view = localizationView;
-//        view = themeview;
+       view = themeview;
 
     
 

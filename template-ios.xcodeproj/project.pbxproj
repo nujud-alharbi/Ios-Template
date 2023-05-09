@@ -31,11 +31,12 @@
 		049C9AEE2A081C1D00952785 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 049C9AED2A081C1D00952785 /* FirebaseFirestoreSwift */; };
 		049C9AF02A081C1D00952785 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 049C9AEF2A081C1D00952785 /* FirebaseStorage */; };
 		049C9AF22A081C1D00952785 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 049C9AF12A081C1D00952785 /* FirebaseStorageCombine-Community */; };
+		37112C422A0A72CF0079C0D8 /* CircularCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37112C412A0A72CF0079C0D8 /* CircularCheckBox.swift */; };
 		375F34772A07B609003A10E5 /* lightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375F34762A07B609003A10E5 /* lightTheme.swift */; };
 		375F34792A07B61C003A10E5 /* darkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375F34782A07B61C003A10E5 /* darkTheme.swift */; };
 		375F347B2A07B629003A10E5 /* theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375F347A2A07B629003A10E5 /* theme.swift */; };
 		375F347D2A07B63E003A10E5 /* themeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375F347C2A07B63E003A10E5 /* themeProtocol.swift */; };
-		375F347F2A07CBDC003A10E5 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375F347E2A07CBDC003A10E5 /* LoginVC.swift */; };
+		375F347F2A07CBDC003A10E5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375F347E2A07CBDC003A10E5 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,11 +61,12 @@
 		048B705F2A097416006E584E /* utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utilities.swift; sourceTree = "<group>"; };
 		048B70612A09A5F5006E584E /* authService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = authService.swift; sourceTree = "<group>"; };
 		049C9AE02A081B7100952785 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		37112C412A0A72CF0079C0D8 /* CircularCheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularCheckBox.swift; sourceTree = "<group>"; };
 		375F34762A07B609003A10E5 /* lightTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lightTheme.swift; sourceTree = "<group>"; };
 		375F34782A07B61C003A10E5 /* darkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = darkTheme.swift; sourceTree = "<group>"; };
 		375F347A2A07B629003A10E5 /* theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = theme.swift; sourceTree = "<group>"; };
 		375F347C2A07B63E003A10E5 /* themeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = themeProtocol.swift; sourceTree = "<group>"; };
-		375F347E2A07CBDC003A10E5 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		375F347E2A07CBDC003A10E5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,7 +261,8 @@
 			isa = PBXGroup;
 			children = (
 				0486DC6C2A0431D00080375D /* signUpViewController.swift */,
-				375F347E2A07CBDC003A10E5 /* LoginVC.swift */,
+				375F347E2A07CBDC003A10E5 /* LoginViewController.swift */,
+				37112C412A0A72CF0079C0D8 /* CircularCheckBox.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -363,9 +366,10 @@
 			files = (
 				048B70602A097416006E584E /* utilities.swift in Sources */,
 				048906492A03DE2C004F3CBB /* constraintUIview.swift in Sources */,
-				375F347F2A07CBDC003A10E5 /* LoginVC.swift in Sources */,
+				375F347F2A07CBDC003A10E5 /* LoginViewController.swift in Sources */,
 				375F347D2A07B63E003A10E5 /* themeProtocol.swift in Sources */,
 				0486DC6B2A041EFF0080375D /* languageKey.swift in Sources */,
+				37112C422A0A72CF0079C0D8 /* CircularCheckBox.swift in Sources */,
 				04853BC12A007FA500AFD400 /* homeViewController.swift in Sources */,
 				04893CF32A00A56A00213D88 /* localizationView.swift in Sources */,
 				041880002A01D2E800E33CB4 /* localization.swift in Sources */,
