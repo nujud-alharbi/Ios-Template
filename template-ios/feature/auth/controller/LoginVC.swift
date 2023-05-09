@@ -10,7 +10,43 @@ import FirebaseAuth
 import FirebaseFirestore
 
 class LoginVC: UIViewController {
+    
+    
+    
+    private let loginLebel : UILabel = {
+        let label = UILabel()
+        label.text = "login"
+        label.tintColor = .black
+        label.font = UIFont.boldSystemFont(ofSize: 30)
+        return label
+    }()
 
+    private lazy var emailController : UIView = {
+        let image = UIImage(systemName: "envelope.fill")
+        
+        let view = Utilities().inputContainerView(withImage: image! , textField: emailTextField)
+        return view
+    }()
+
+    private lazy var passwordController : UIView = {
+        let image = UIImage(systemName: "lock.fill")
+        let view = Utilities().inputContainerView(withImage: image! , textField: passwordTextField)
+ 
+        return view
+  
+    }()
+    
+    
+    private let emailTextField  : UITextField = {
+        let tf = Utilities().textField(withPlaceholder: "Email")
+        return tf
+    }()
+    
+    private let passwordTextField : UITextField = {
+        let tf = Utilities().textField(withPlaceholder: "Password")
+        tf.isSecureTextEntry = true
+        return tf
+    }()
     
     
     override func viewDidLoad() {
@@ -84,11 +120,7 @@ class LoginVC: UIViewController {
     extension LoginVC {
     func setupUI() {
         view.backgroundColor = .white
-        view.addSubview(stackView)
-        stackView.addArrangedSubview(email)
-        stackView.addArrangedSubview(password)
-        stackView.addArrangedSubview(logIn)
-
+        
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
             stackView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -100),
@@ -96,5 +128,14 @@ class LoginVC: UIViewController {
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             stackView.heightAnchor.constraint(equalToConstant: 190)
         ])
+        
+        let stack = UIStackView(arrangedSubviews: [emailController, passwordController])
+        stack.axis = .vertical
+        stack.spacing = 20
+        stack.distribution = .fillEqually
+        view.addSubview(stack)
+        //stack.anchor(top : signUpLebel.bottomAnchor ,left: view.leftAnchor , right : view.rightAnchor ,paddingLeft: 32 , paddingRight: 32 )
+        
+        
     }
     }
