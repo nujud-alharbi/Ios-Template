@@ -35,6 +35,7 @@
 		375F34792A07B61C003A10E5 /* darkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375F34782A07B61C003A10E5 /* darkTheme.swift */; };
 		375F347B2A07B629003A10E5 /* theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375F347A2A07B629003A10E5 /* theme.swift */; };
 		375F347D2A07B63E003A10E5 /* themeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375F347C2A07B63E003A10E5 /* themeProtocol.swift */; };
+		375F347F2A07CBDC003A10E5 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375F347E2A07CBDC003A10E5 /* LoginVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		375F34782A07B61C003A10E5 /* darkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = darkTheme.swift; sourceTree = "<group>"; };
 		375F347A2A07B629003A10E5 /* theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = theme.swift; sourceTree = "<group>"; };
 		375F347C2A07B63E003A10E5 /* themeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = themeProtocol.swift; sourceTree = "<group>"; };
+		375F347E2A07CBDC003A10E5 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				0486DC6C2A0431D00080375D /* signUpViewController.swift */,
+				375F347E2A07CBDC003A10E5 /* LoginVC.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 			files = (
 				048B70602A097416006E584E /* utilities.swift in Sources */,
 				048906492A03DE2C004F3CBB /* constraintUIview.swift in Sources */,
+				375F347F2A07CBDC003A10E5 /* LoginVC.swift in Sources */,
 				375F347D2A07B63E003A10E5 /* themeProtocol.swift in Sources */,
 				0486DC6B2A041EFF0080375D /* languageKey.swift in Sources */,
 				04853BC12A007FA500AFD400 /* homeViewController.swift in Sources */,

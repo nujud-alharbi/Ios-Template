@@ -3,81 +3,75 @@
 //  template-ios
 //
 //  Created by Hanan Asiri on 17/10/1444 AH.
-//
 
 import UIKit
-class ThemeController: UIViewController {
 
-    let userdefaults = UserDefaults.standard
-    let mySegmentedControl = UISegmentedControl (items: ["Light Mode","Dark Mode"])
-        let theme_Key  = "themeKey"
-        let dark_theme = "darkTheme"
-        let light_Theme = "lightTheme"
 
-    override func viewDidLoad()
-    {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        view.backgroundColor = .systemBackground
-        let xPostion:CGFloat = 170
-        let yPostion:CGFloat = 110
-        let elementWidth:CGFloat = 200
-        let elementHeight:CGFloat = 30
+class ThemeView: UIView {
+    
+    let defaults = UserDefaults.standard
+    var DarkisOn = Bool()
+    let darkMode = "darkModeEnabled"
 
-        mySegmentedControl.frame = CGRect(x: xPostion, y: yPostion, width: elementWidth, height: elementHeight)
+    func setup() {
+        
+        let darkModeEnabled = defaults.bool(forKey: darkMode)
+        if darkModeEnabled {
+          
+            defaults.set(true, forKey: darkMode)
 
-        // Make second segment selected
-     mySegmentedControl.selectedSegmentIndex = 0
+        } else {
+            self.backgroundColor = UIColor.systemBackground
+            defaults.set(false, forKey: darkMode)
 
-        //Change text color of UISegmentedControl
-        mySegmentedControl.tintColor = UIColor.yellow
 
-        //Change UISegmentedControl background colour
-        mySegmentedControl.backgroundColor = UIColor.systemBackground
-
-        // Add function to handle Value Changed events
-        mySegmentedControl.addTarget(self, action: #selector(self.segmentedValueChanged(_:)), for: .valueChanged)
-
-        self.view.addSubview(mySegmentedControl)
-        updateTheme()
+        }
+    
+        backgroundColor = .systemBackground
+        let StyleButton = UIButton()
+        StyleButton.setImage(UIImage(systemName: "sun.max.fill"), for: .normal)
+        StyleButton.setTitleColor(.blue, for: .normal)
+        StyleButton.tintColor = .blue
+        StyleButton.frame = CGRect(x: 220, y: -130, width: 250, height: 500)
+        //StyleButton.frame.size = CGSize(width: 20.0, height: 20.0)
+        StyleButton.addTarget(self, action: #selector(toggleInterfaceStyle), for: .touchUpInside)
+        self.addSubview(StyleButton)
+//        toggleInterfaceStyle()
+        
     }
-
-    func updateTheme() {
+    override init(frame: CGRect) {
+        super.init(frame: UIScreen.main.bounds)
+        
+        let darkModeEnabled = defaults.bool(forKey: darkMode)
+        setup()
+       // toggleInterfaceStyle()
        
-        let theme = userdefaults.string(forKey: theme_Key)
-        if (theme == light_Theme) {
-           // segmentedValueChanged
-            mySegmentedControl.selectedSegmentIndex = 0
-            view.backgroundColor = UIColor.white
-        }
-        else if (theme == dark_theme) {
-            mySegmentedControl.selectedSegmentIndex = 1
-            view.backgroundColor = UIColor.black
-        }
     }
+  
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setup()
+    }
+    
+     
+    @objc func toggleInterfaceStyle() {
 
-    @objc func segmentedValueChanged(_ sender:UISegmentedControl!)
-    {
+        let scenes = UIApplication.shared.connectedScenes
+        let windowScene = scenes.first as? UIWindowScene
+        let window = windowScene?.windows.first
+        let interfaceStyle = window?.overrideUserInterfaceStyle == .unspecified ? UIScreen.main.traitCollection.userInterfaceStyle : window?.overrideUserInterfaceStyle
 
-        switch sender.selectedSegmentIndex {
-             case 1:
-            self.view.backgroundColor = UIColor.black
-            userdefaults.set(dark_theme, forKey: theme_Key)
-
-        default:
-            self.view.backgroundColor = UIColor.white
-            userdefaults.set(light_Theme, forKey: theme_Key)
-
+        if interfaceStyle != .dark {
+            window?.overrideUserInterfaceStyle = .dark
+            backgroundColor = UIColor(named: "Background")
+            defaults.set(true, forKey: darkMode)
+       
+        } else {
+            window?.overrideUserInterfaceStyle = .light
+            backgroundColor = UIColor(named: "Background")
+            defaults.set(false, forKey: darkMode)
+           
+        }
 
         }
-        updateTheme()
-        print("Selected Segment Index is : \(sender.selectedSegmentIndex)")
-    }
-
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-}
+        }

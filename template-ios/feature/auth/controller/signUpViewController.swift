@@ -8,9 +8,7 @@
 import UIKit
 
 class signUpViewController: UIViewController {
-    
-    
-    
+
     //     properties
     
     var authViewModel = AuthViewModel()
@@ -24,14 +22,15 @@ class signUpViewController: UIViewController {
         return label
     }()
     
-    
     private lazy var nameController : UIView = {
         let image = UIImage(systemName: "person.fill")
         let view = Utilities().inputContainerView(withImage: image! , textField: nameTextField)
         return view
+
     }()
     
     
+
     private lazy var emailController : UIView = {
         let image = UIImage(systemName: "envelope.fill")
         let view = Utilities().inputContainerView(withImage: image! , textField: emailTextField)
@@ -130,13 +129,16 @@ class signUpViewController: UIViewController {
     
     func configureUI(){
         
-        view.backgroundColor = .white
-        
+
+        view.backgroundColor = UIColor(named: "Background")
+
         view.addSubview(signUpLebel)
         
         signUpLebel.centerX(inView: view , topAnchor: view.safeAreaLayoutGuide.topAnchor )
         signUpLebel.setDimensions(width: 128, height: 128)
+
         
+
         let stack = UIStackView(arrangedSubviews: [nameController,emailController, passwordController, confirmPasswordController , signUpButton ])
         stack.axis = .vertical
         stack.spacing = 20
