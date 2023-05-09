@@ -11,7 +11,7 @@ class signUpViewController: UIViewController {
 
     //     properties
     
-    var authViewModel = AuthViewModel()
+  
     
     
     private let signUpLebel : UILabel = {
@@ -120,7 +120,6 @@ class signUpViewController: UIViewController {
     @objc func handleSignUp(){
         guard let email =  emailTextField.text else{return }
         guard let passwrd =  passwordTextField.text else{return }
-        authViewModel.signUp(email: email, password: passwrd, name: nameTextField.text!)
 
     }
     
