@@ -13,10 +13,12 @@ class homeViewController: UIViewController {
     //  properties
     
 
-    
-   // private let localizationView = HomeView()
-  private let themeview = ThemeView()
 
+    private let localizationView = HomeView()
+    
+
+
+//    private let themeview = ThemeView()
 
     
     let authButton : CustomButton  = {
@@ -36,9 +38,12 @@ class homeViewController: UIViewController {
     
     
     override func loadView() {
-        super.viewDidLoad()
-        //self.view = HomeView()
-        self.view = ThemeView()
+
+      
+        
+       view = localizationView;
+//        view = themeview;
+
     
 
     }
