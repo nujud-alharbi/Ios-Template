@@ -11,6 +11,7 @@ import FirebaseFirestore
 
 class LoginVC: UIViewController {
     
+    var service = AuthService()
     private let loginLebel : UILabel = {
         let label = UILabel()
         label.text = "login"
@@ -145,7 +146,8 @@ class LoginVC: UIViewController {
     }
     
     @objc func handleWithGoogle(){
-        navigationController?.popViewController(animated: true)
+//        navigationController?.popViewController(animated: true)
+        service.googleSignin()
     }
     
     @objc func handleWithApple(){

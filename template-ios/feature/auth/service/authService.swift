@@ -8,11 +8,13 @@
 import Foundation
 import FirebaseAuth
 import FirebaseCore
+import GoogleSignIn
+
 
 class AuthService {
     
     
-//    var a = Auth.auth()
+    //    var a = Auth.auth()
     func auth(email:String, password:String, displayName:String  , complition :@escaping(Bool ,Error? ) -> Void){
         
         
@@ -45,22 +47,51 @@ class AuthService {
             changeRequest?.commitChanges { (error) in
                 complition(false , error)
                 return
-               
                 
-            
-        }
+                
+                
+            }
             print(changeRequest?.displayName)
             
             complition(true ,nil)
-        
-        
-        
-      
-        
-       
+            
+            
+            
+            
+            
+            
             
         }
     }
-    
-    //    public func
+    func googleSignin(){
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+        
+        // Create Google Sign In configuration object.
+        let config = GIDConfiguration(clientID: clientID)
+        GIDSignIn.sharedInstance.configuration = config
+        
+        // Start the sign in flow!
+        GIDSignIn.sharedInstance.signIn(withPresenting: getRootViewController()) {  result, error in
+            guard error == nil else {
+                return          }
+            
+            guard let user = result?.user,
+                  let idToken = user.idToken?.tokenString
+            else {
+                return          }
+            
+            let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                           accessToken: user.accessToken.tokenString)
+            
+            Auth.auth().signIn(with: credential){result, error in
+                
+                guard error == nil else
+                {
+                    return
+                }
+                print("sign in")
+            }
+        }
+        //    public func
+    }
 }

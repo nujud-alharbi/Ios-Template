@@ -93,7 +93,7 @@ class signUpViewController: UIViewController {
     
     
     private let alreadyHaveAccountButton : UIButton = {
-        let button = Utilities().attributedButton("Already have an account? ", " SingUp")
+        let button = Utilities().attributedButton("Already have an account? ", " Singin")
         button.addTarget(self, action: #selector(handleShowLogin), for: .touchUpInside)
         return button
     }()
@@ -113,7 +113,8 @@ class signUpViewController: UIViewController {
     //    selecters
     
     @objc func handleShowLogin(){
-        navigationController?.popViewController(animated: true)
+        
+        navigationController?.pushViewController(LoginVC(), animated: true)
     }
     
     
