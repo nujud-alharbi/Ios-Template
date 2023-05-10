@@ -11,7 +11,11 @@ import FirebaseFirestore
 
 class LoginVC: UIViewController {
     
-    var service = AuthService()
+   
+    
+    let alert =  Alert()
+    let authService = AuthService()
+    
     private let loginLebel : UILabel = {
         let label = UILabel()
         label.text = "login"
@@ -49,10 +53,10 @@ class LoginVC: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("login", for: .normal)
         button.backgroundColor = .black
-        button.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 45).isActive = true
         button.layer.cornerRadius = 5
         button.tintColor = .white
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
         button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         return button
     }()
@@ -71,7 +75,7 @@ class LoginVC: UIViewController {
         label.text = "Forgot paasword ?"
         label.tintColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textAlignment = .left
+        label.textAlignment = .center
         return label
     }()
     
@@ -114,40 +118,43 @@ class LoginVC: UIViewController {
         return button
     }()
     
-    
-    
-    
-    
+    let checkbox = CircularCheckBox(frame: CGRect(x: 50 , y: 420, width: 18 , height: 18))
+ 
     //     lifcycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        let checkbox = CircularCheckBox(frame: CGRect(x: 48 , y: 358, width: 18 , height: 18))
-        let lable = UILabel (frame: CGRect(x: 76, y: 334, width: 200, height: 70))
+        let lable = UILabel (frame: CGRect(x: 76, y: 394, width: 200, height: 70))
         lable.text = "Rember me"
         lable.font = UIFont.boldSystemFont(ofSize: 13)
         lable.textColor = .systemGray2
-        
         view.addSubview(lable)
         view.addSubview(checkbox)
        
-    }
+      }
     
     
 
     //    selecters
     
     @objc func handleShowLogin(){
-        navigationController?.popViewController(animated: true)
+        navigationController?.pushViewController(signUpViewController(), animated: true)
     }
+
+            
+    
+    
+    
+    
+    
+    
     
     @objc func handleWithPhone(){
         navigationController?.popViewController(animated: true)
     }
     
     @objc func handleWithGoogle(){
-//        navigationController?.popViewController(animated: true)
-        service.googleSignin()
+        navigationController?.popViewController(animated: true)
     }
     
     @objc func handleWithApple(){
@@ -155,23 +162,38 @@ class LoginVC: UIViewController {
     }
     
     
-    @objc func handleLogin(){
-//        if let email = emailController.text, email.isEmpty == false,
-//                 let password = passwordController.text, password.isEmpty == false {
-//                  Auth.auth().signIn(withEmail: email, password: password) { result, error in
-//                      if error == nil {
-//                          // go to main vc
-//                          let vc = UINavigationController(rootViewController: homeViewController())
-//                          vc.modalTransitionStyle = .crossDissolve
-//                          vc.modalPresentationStyle = .fullScreen
-//                          self.present(vc, animated: true, completion: nil)
-//                      } else {
-//                          print(error?.localizedDescription)
-//                     }
-//                     }
-                    // }
-
-    }
+    @objc func handleLogin()  {
+                if let email = emailTextField.text, email.isEmpty == false,
+                let password = passwordTextField.text, password.isEmpty == false {
+                Auth.auth().signIn(withEmail: email, password: password) { result, error in
+                if error == nil {
+                                  // go to main vc
+                let vc = UINavigationController(rootViewController: signUpViewController())
+                vc.modalTransitionStyle = .crossDissolve
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
+                } else {
+                print(error?.localizedDescription)
+                }
+                }
+                }
+                guard let email =  emailTextField.text else{return }
+                guard let password =  passwordTextField.text else{return }
+        
+                if (email != "" && email != nil) {
+                authService.LoginWithEmail(email: email, password: password) { wasRegisterd, error  in
+                if let error = error {
+                self.alert.showAlert(with: "Error", message: error.localizedDescription, on: self)
+                return }
+                print ("wasRegisterd" , wasRegisterd)
+                self.navigationController?.popViewController(animated: true)
+                }
+                } else {
+             alert.showAlert(with:  "LOGIN FIELD", message: "Email Not Found", on: self)
+                        }
+        
+                }
+        
     
     
     //     helpers
@@ -180,20 +202,38 @@ class LoginVC: UIViewController {
         
 
         view.backgroundColor = UIColor(named: "Background")
+        
         view.addSubview(loginLebel)
         loginLebel.centerX(inView: view , topAnchor: view.safeAreaLayoutGuide.topAnchor )
         loginLebel.setDimensions(width: 128, height: 128)
-        let stack = UIStackView(arrangedSubviews: [emailController, passwordController, loginButton, //forgotLebel ,
-        signwithPhoneButton ,signwithGoogleButton , signwithAppleButton])
+        
+        
+        let stack = UIStackView(arrangedSubviews: [emailController,
+        passwordController,loginButton ])
         stack.axis = .vertical
-        stack.spacing = 40
+        stack.spacing = 20
         stack.distribution = .fillEqually
         view.addSubview(stack)
         stack.anchor(top : loginLebel.bottomAnchor ,left: view.leftAnchor , right : view.rightAnchor,paddingLeft: 38 , paddingRight: 38)
+       
+        
+        let stackView = UIStackView(arrangedSubviews: [forgotLebel ,
+        signwithPhoneButton ,signwithGoogleButton , signwithAppleButton])
+        stackView.axis = .vertical
+        stackView.spacing = 15
+        stackView.distribution = .fillEqually
+        view.addSubview(stackView)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 450),
+            stackView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -70),
+//          stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stackView.heightAnchor.constraint(equalToConstant: 230)
+        ])
+
         view.addSubview(alreadyHaveAccountButton)
         alreadyHaveAccountButton.anchor(left : view.leftAnchor ,bottom: view.safeAreaLayoutGuide.bottomAnchor , right: view.rightAnchor , paddingLeft: 40 , paddingRight: 40)
-        
-        
     }
     
     }
