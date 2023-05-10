@@ -12,7 +12,8 @@ class signUpViewController: UIViewController {
     //     properties
     
 
-    
+    let alert =  Alert()
+    let authService = AuthService()
     
     private let signUpLebel : UILabel = {
         let label = UILabel()
@@ -120,7 +121,31 @@ class signUpViewController: UIViewController {
     
     @objc func handleSignUp(){
         guard let email =  emailTextField.text else{return }
-        guard let passwrd =  passwordTextField.text else{return }
+        guard let password =  passwordTextField.text else{return }
+        guard let name =  nameTextField.text else{return }
+        guard let confirmPassword =  confirmPasswordTextField.text else{return }
+
+
+        if (name != "" && name != nil)
+
+
+        {
+            if(password == confirmPassword){
+                //
+                authService.signUpWithEmail(email: email, password: password, displayName: name) { wasRegisterd, error  in
+                    if let error = error {
+                        self.alert.showAlert(with: "LOGIN FIELD", message: error.localizedDescription, on: self)
+                        return
+                    }
+                    print ("wasRegisterd" , wasRegisterd)
+                    self.navigationController?.popViewController(animated: true)
+                }
+            }else {
+                alert.showAlert(with:  "LOGIN FIELD", message: "please same password", on: self)
+            }
+        }else{
+            alert.showAlert(with: "LOGIN FIELD", message: "please inter name" , on: self)
+        }
 
 
     }
@@ -152,6 +177,14 @@ class signUpViewController: UIViewController {
                                         paddingRight: 40)
         
         
+    }
+    
+    
+    
+    @objc func dismissAlert(){
+        
+        
+        alert.dismissAlert()
     }
     
 }
