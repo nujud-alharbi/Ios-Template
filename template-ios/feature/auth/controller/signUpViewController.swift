@@ -12,7 +12,7 @@ class signUpViewController: UIViewController {
     //     properties
     
   
-    
+  var  authService =  AuthService()
     
     private let signUpLebel : UILabel = {
         let label = UILabel()
@@ -55,6 +55,7 @@ class signUpViewController: UIViewController {
     
     private let nameTextField : UITextField = {
         let tf = Utilities().textField(withPlaceholder: "name")
+        tf.addTarget(self, action: #selector(handelTextChangeName), for: .editingChanged)
         return tf
     }()
     
@@ -119,8 +120,57 @@ class signUpViewController: UIViewController {
     
     @objc func handleSignUp(){
         guard let email =  emailTextField.text else{return }
-        guard let passwrd =  passwordTextField.text else{return }
-
+        guard let password =  passwordTextField.text else{return }
+        guard let name =  nameTextField.text else{return }
+        guard let confirmPassword =  confirmPasswordTextField.text else{return }
+        
+        if (name != "" && name != nil)
+            
+        
+        {
+            if(password == confirmPassword){
+                //
+                authService.signUpWithEmail(email: email, password: password, displayName: name) { wasRegisterd, error  in
+                    
+                    if let error = error {
+                        
+                        let alert = UIAlertController(title: "LOGIN FIELD", message: error.localizedDescription, preferredStyle: .alert)
+                        
+                        alert.addAction(UIAlertAction(title: "OK", style: .default))
+                        self.present(alert, animated: true, completion: nil)
+                        
+                        
+                        return
+                    }
+                    
+                    print ("wasRegisterd" , wasRegisterd)
+                    self.navigationController?.popViewController(animated: true)
+                }
+                
+            }else {
+                
+               let alert =  Alert()
+                alert.showAlert(with:  "LOGIN FIELD", message: "please same password", on: self)
+                
+                
+            
+//                let alert = UIAlertController(title: "LOGIN FIELD", message: "please same password", preferredStyle: .alert)
+//
+//                alert.addAction(UIAlertAction(title: "OK", style: .default))
+//                self.present(alert, animated: true, completion: nil)
+//
+            }
+            
+        }else{
+            let alert = UIAlertController(title: "LOGIN FIELD", message: "please inter name", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true, completion: nil)
+            
+            
+        }
+        
+       
     }
     
     
@@ -150,6 +200,14 @@ class signUpViewController: UIViewController {
                                         paddingRight: 40)
         
         
+    }
+    
+    
+//    handle text fild
+    
+    @objc func handelTextChangeName (){
+        guard let text = nameTextField.text else {return}
+        print (text)
     }
     
 }

@@ -16,9 +16,11 @@
 		045381272A0ACD0500B14A8F /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 045381262A0ACD0500B14A8F /* FirebaseFirestoreCombine-Community */; };
 		045381292A0ACD0500B14A8F /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 045381282A0ACD0500B14A8F /* FirebaseStorage */; };
 		0453812B2A0ACD0500B14A8F /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 0453812A2A0ACD0500B14A8F /* FirebaseStorageCombine-Community */; };
+		0453812E2A0AD75E00B14A8F /* string.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0453812D2A0AD75E00B14A8F /* string.swift */; };
+		045381462A0B101900B14A8F /* alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045381452A0B101900B14A8F /* alert.swift */; };
 		04853BBD2A007FA500AFD400 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04853BBC2A007FA500AFD400 /* AppDelegate.swift */; };
 		04853BBF2A007FA500AFD400 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04853BBE2A007FA500AFD400 /* SceneDelegate.swift */; };
-		04853BC12A007FA500AFD400 /* homeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04853BC02A007FA500AFD400 /* homeViewController.swift */; };
+		04853BC12A007FA500AFD400 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04853BC02A007FA500AFD400 /* HomeViewController.swift */; };
 		04853BC62A007FA500AFD400 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04853BC52A007FA500AFD400 /* Assets.xcassets */; };
 		04853BC92A007FA500AFD400 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04853BC72A007FA500AFD400 /* LaunchScreen.storyboard */; };
 		0486DC6B2A041EFF0080375D /* languageKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486DC6A2A041EFF0080375D /* languageKey.swift */; };
@@ -33,17 +35,19 @@
 		049C9AE12A081B7100952785 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 049C9AE02A081B7100952785 /* GoogleService-Info.plist */; };
 		375F34772A07B609003A10E5 /* lightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375F34762A07B609003A10E5 /* lightTheme.swift */; };
 		375F34792A07B61C003A10E5 /* darkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375F34782A07B61C003A10E5 /* darkTheme.swift */; };
-		375F347B2A07B629003A10E5 /* theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375F347A2A07B629003A10E5 /* theme.swift */; };
+		375F347B2A07B629003A10E5 /* themeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375F347A2A07B629003A10E5 /* themeView.swift */; };
 		375F347D2A07B63E003A10E5 /* themeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375F347C2A07B63E003A10E5 /* themeProtocol.swift */; };
 		375F347F2A07CBDC003A10E5 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375F347E2A07CBDC003A10E5 /* LoginVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		04187FFF2A01D2E800E33CB4 /* localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = localization.swift; sourceTree = "<group>"; };
+		0453812D2A0AD75E00B14A8F /* string.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = string.swift; sourceTree = "<group>"; };
+		045381452A0B101900B14A8F /* alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alert.swift; sourceTree = "<group>"; };
 		04853BB92A007FA500AFD400 /* template-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "template-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04853BBC2A007FA500AFD400 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04853BBE2A007FA500AFD400 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		04853BC02A007FA500AFD400 /* homeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeViewController.swift; sourceTree = "<group>"; };
+		04853BC02A007FA500AFD400 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		04853BC52A007FA500AFD400 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04853BC82A007FA500AFD400 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04853BCA2A007FA500AFD400 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -62,7 +66,7 @@
 		049C9AE02A081B7100952785 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		375F34762A07B609003A10E5 /* lightTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lightTheme.swift; sourceTree = "<group>"; };
 		375F34782A07B61C003A10E5 /* darkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = darkTheme.swift; sourceTree = "<group>"; };
-		375F347A2A07B629003A10E5 /* theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = theme.swift; sourceTree = "<group>"; };
+		375F347A2A07B629003A10E5 /* themeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = themeView.swift; sourceTree = "<group>"; };
 		375F347C2A07B63E003A10E5 /* themeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = themeProtocol.swift; sourceTree = "<group>"; };
 		375F347E2A07CBDC003A10E5 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,6 +90,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0453812C2A0AD74F00B14A8F /* String */ = {
+			isa = PBXGroup;
+			children = (
+				0453812D2A0AD75E00B14A8F /* string.swift */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
+		045381442A0B01D800B14A8F /* DB */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
 		04853BB02A007FA500AFD400 = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				048864E32A01AC1000CB2206 /* CustomButton.swift */,
+				045381452A0B101900B14A8F /* alert.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -187,7 +207,7 @@
 		0489064A2A03E917004F3CBB /* initail */ = {
 			isa = PBXGroup;
 			children = (
-				04853BC02A007FA500AFD400 /* homeViewController.swift */,
+				04853BC02A007FA500AFD400 /* HomeViewController.swift */,
 				0489064B2A03E939004F3CBB /* view */,
 			);
 			path = initail;
@@ -196,6 +216,7 @@
 		0489064B2A03E939004F3CBB /* view */ = {
 			isa = PBXGroup;
 			children = (
+				375F347A2A07B629003A10E5 /* themeView.swift */,
 				04893CF22A00A56A00213D88 /* localizationView.swift */,
 			);
 			path = view;
@@ -212,6 +233,8 @@
 		04893CF52A0131C200213D88 /* core */ = {
 			isa = PBXGroup;
 			children = (
+				045381442A0B01D800B14A8F /* DB */,
+				0453812C2A0AD74F00B14A8F /* String */,
 				048B705E2A0973F4006E584E /* utilities */,
 				375F34752A07B5F7003A10E5 /* theme */,
 				0486DC692A041ED70080375D /* constants */,
@@ -269,7 +292,6 @@
 			children = (
 				375F34762A07B609003A10E5 /* lightTheme.swift */,
 				375F34782A07B61C003A10E5 /* darkTheme.swift */,
-				375F347A2A07B629003A10E5 /* theme.swift */,
 				375F347C2A07B63E003A10E5 /* themeProtocol.swift */,
 			);
 			path = theme;
@@ -366,10 +388,10 @@
 				375F347F2A07CBDC003A10E5 /* LoginVC.swift in Sources */,
 				375F347D2A07B63E003A10E5 /* themeProtocol.swift in Sources */,
 				0486DC6B2A041EFF0080375D /* languageKey.swift in Sources */,
-				04853BC12A007FA500AFD400 /* homeViewController.swift in Sources */,
+				04853BC12A007FA500AFD400 /* HomeViewController.swift in Sources */,
 				04893CF32A00A56A00213D88 /* localizationView.swift in Sources */,
 				041880002A01D2E800E33CB4 /* localization.swift in Sources */,
-				375F347B2A07B629003A10E5 /* theme.swift in Sources */,
+				375F347B2A07B629003A10E5 /* themeView.swift in Sources */,
 				04853BBD2A007FA500AFD400 /* AppDelegate.swift in Sources */,
 				375F34772A07B609003A10E5 /* lightTheme.swift in Sources */,
 				04853BBF2A007FA500AFD400 /* SceneDelegate.swift in Sources */,
@@ -377,7 +399,9 @@
 				0486DC6D2A0431D00080375D /* signUpViewController.swift in Sources */,
 				0486DC752A044E550080375D /* localizationSystem.swift in Sources */,
 				375F34792A07B61C003A10E5 /* darkTheme.swift in Sources */,
+				0453812E2A0AD75E00B14A8F /* string.swift in Sources */,
 				048B70622A09A5F5006E584E /* authService.swift in Sources */,
+				045381462A0B101900B14A8F /* alert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

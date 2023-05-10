@@ -3,7 +3,6 @@
 //  template-ios
 //
 //  Created by Hanan Asiri on 17/10/1444 AH.
-
 import UIKit
 
 
@@ -13,6 +12,30 @@ class ThemeView: UIView {
     var DarkisOn = Bool()
     let darkMode = "darkModeEnabled"
 
+    
+    
+    
+    override init(frame: CGRect) {
+        super.init(frame: UIScreen.main.bounds)
+        
+        let darkModeEnabled = defaults.bool(forKey: darkMode)
+        setup()
+       // toggleInterfaceStyle()
+       
+    }
+  
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setup()
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     func setup() {
         
         let darkModeEnabled = defaults.bool(forKey: darkMode)
@@ -39,20 +62,7 @@ class ThemeView: UIView {
 //        toggleInterfaceStyle()
         
     }
-    override init(frame: CGRect) {
-        super.init(frame: UIScreen.main.bounds)
-        
-        let darkModeEnabled = defaults.bool(forKey: darkMode)
-        setup()
-       // toggleInterfaceStyle()
-       
-    }
-  
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setup()
-    }
-    
+ 
      
     @objc func toggleInterfaceStyle() {
 

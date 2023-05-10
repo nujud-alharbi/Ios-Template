@@ -104,7 +104,7 @@ class LoginVC: UIViewController {
             Auth.auth().signIn(withEmail: email, password: password) { result, error in
                 if error == nil {
                     // go to main vc
-                    let vc = UINavigationController(rootViewController: homeViewController())
+                    let vc = UINavigationController(rootViewController: HomeViewController())
                     vc.modalTransitionStyle = .crossDissolve
                     vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion: nil)
