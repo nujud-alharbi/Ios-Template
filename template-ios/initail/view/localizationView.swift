@@ -8,10 +8,7 @@
 import UIKit
 
 class HomeView: UIView {
-    
-    
-    
-    
+
 //    ---------------------------- properties
     
     let languageImage = UIImageView()
@@ -22,11 +19,7 @@ class HomeView: UIView {
 
     
     let changeLanguageButton: CustomButton = {
-        
-        
-        
-        
-        
+
         let changeLanguage = CustomButton(title: "language", comment : "String")
                                             
         changeLanguage.configuration = .filled()
