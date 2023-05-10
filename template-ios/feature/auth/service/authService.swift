@@ -15,7 +15,7 @@ class AuthService {
     
     
     //    var a = Auth.auth()
-    func auth(email:String, password:String, displayName:String  , complition :@escaping(Bool ,Error? ) -> Void){
+    func signUpWithEmail(email:String, password:String, displayName:String  , complition :@escaping(Bool ,Error? ) -> Void){
         
         
         
