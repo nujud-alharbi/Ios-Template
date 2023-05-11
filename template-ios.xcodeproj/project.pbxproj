@@ -42,6 +42,7 @@
 		375F347B2A07B629003A10E5 /* theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375F347A2A07B629003A10E5 /* theme.swift */; };
 		375F347D2A07B63E003A10E5 /* themeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375F347C2A07B63E003A10E5 /* themeProtocol.swift */; };
 		375F347F2A07CBDC003A10E5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375F347E2A07CBDC003A10E5 /* LoginViewController.swift */; };
+		37F954B02A0CEAD300A7B628 /* ForgotPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F954AF2A0CEAD300A7B628 /* ForgotPassViewController.swift */; };
 		C75941602A0B7F6700C1292A /* loginwithgoogle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C759415F2A0B7F6700C1292A /* loginwithgoogle.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		375F347A2A07B629003A10E5 /* theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = theme.swift; sourceTree = "<group>"; };
 		375F347C2A07B63E003A10E5 /* themeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = themeProtocol.swift; sourceTree = "<group>"; };
 		375F347E2A07CBDC003A10E5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		37F954AF2A0CEAD300A7B628 /* ForgotPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassViewController.swift; sourceTree = "<group>"; };
 		C759415F2A0B7F6700C1292A /* loginwithgoogle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginwithgoogle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -277,6 +279,7 @@
 				0486DC6C2A0431D00080375D /* signUpViewController.swift */,
 				375F347E2A07CBDC003A10E5 /* LoginViewController.swift */,
 				37112C412A0A72CF0079C0D8 /* CircularCheckBox.swift */,
+				37F954AF2A0CEAD300A7B628 /* ForgotPassViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				0486DC752A044E550080375D /* localizationSystem.swift in Sources */,
 				375F34792A07B61C003A10E5 /* darkTheme.swift in Sources */,
 				048B70622A09A5F5006E584E /* authService.swift in Sources */,
+				37F954B02A0CEAD300A7B628 /* ForgotPassViewController.swift in Sources */,
 				045372CC2A0C161C00588719 /* customAlert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
