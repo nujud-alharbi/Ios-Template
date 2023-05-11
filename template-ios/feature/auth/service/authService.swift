@@ -13,8 +13,7 @@ import GoogleSignIn
 
 class AuthService {
     
-    
-    //    var a = Auth.auth()
+
     func signUpWithEmail(email:String, password:String, displayName:String  , complition :@escaping(Bool ,Error? ) -> Void){
         
         var userAuth =     Auth.auth().createUser(withEmail: email, password: password)

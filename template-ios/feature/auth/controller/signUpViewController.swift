@@ -9,11 +9,13 @@ import UIKit
 
 class signUpViewController: UIViewController {
 
-    //     properties
+
+    //    ------------------- properties ---------------------------
     
 
     let alert =  Alert()
     let authService = AuthService()
+    
     
     private let signUpLebel : UILabel = {
         let label = UILabel()
@@ -30,8 +32,6 @@ class signUpViewController: UIViewController {
 
     }()
     
-    
-
     private lazy var emailController : UIView = {
         let image = UIImage(systemName: "envelope.fill")
         let view = Utilities().inputContainerView(withImage: image! , textField: emailTextField)
@@ -39,12 +39,10 @@ class signUpViewController: UIViewController {
     }()
     
     private lazy var passwordController : UIView = {
-        
         let image = UIImage(systemName: "lock.fill")
         let view = Utilities().inputContainerView(withImage: image! , textField: passwordTextField)
         return view
     }()
-    
     
     private lazy var confirmPasswordController : UIView = {
         let image = UIImage(systemName: "lock.fill")
@@ -53,18 +51,15 @@ class signUpViewController: UIViewController {
         return view
     }()
     
-    
     private let nameTextField : UITextField = {
         let tf = Utilities().textField(withPlaceholder: "name")
         return tf
     }()
     
-    
     private let emailTextField  : UITextField = {
         let tf = Utilities().textField(withPlaceholder: "Email")
         return tf
     }()
-    
     
     private let passwordTextField : UITextField = {
         let tf = Utilities().textField(withPlaceholder: "Password")
@@ -72,98 +67,50 @@ class signUpViewController: UIViewController {
         return tf
     }()
     
-    
     private let confirmPasswordTextField : UITextField = {
         let tf = Utilities().textField(withPlaceholder: "confirm password")
         tf.isSecureTextEntry = true
         return tf
     }()
     
+    let signUpButton : CustomButton  = {
+        
+        let authButton = CustomButton(title: "Sign Up", comment : "String")
+                                        
+    authButton.configuration = .filled()
+    authButton.configuration?.baseBackgroundColor = UIColor(named: "buttonColor")
     
-    private let signUpButton : UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Sign Up", for: .normal)
-        button.backgroundColor = .black
-        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        button.layer.cornerRadius = 5
-        button.tintColor = .white
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
-        button.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
-        return button
-    }()
+    authButton.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
+    return authButton
+}()
     
+
     
     private let alreadyHaveAccountButton : UIButton = {
         let button = Utilities().attributedButton("Already have an account? ", " Singin")
         button.addTarget(self, action: #selector(handleShowLogin), for: .touchUpInside)
         return button
     }()
+
     
-    
-    
-    
-    //     lifcycle
+    //  --------------   lifcycle ------------------------
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-       
+      
     }
     
-    
 
-    //    selecters
-    
-    @objc func handleShowLogin(){
-        
-        navigationController?.pushViewController(LoginVC(), animated: true)
-    }
-    
-    
-    @objc func handleSignUp(){
-        guard let email =  emailTextField.text else{return }
-        guard let password =  passwordTextField.text else{return }
-        guard let name =  nameTextField.text else{return }
-        guard let confirmPassword =  confirmPasswordTextField.text else{return }
-
-
-        if (name != "" && name != nil)
-
-
-        {
-            if(password == confirmPassword){
-                //
-                authService.signUpWithEmail(email: email, password: password, displayName: name) { wasRegisterd, error  in
-                    if let error = error {
-                        self.alert.showAlert(with: "LOGIN FIELD", message: error.localizedDescription, on: self)
-                        return
-                    }
-                    print ("wasRegisterd" , wasRegisterd)
-                    self.navigationController?.popViewController(animated: true)
-                }
-            }else {
-                alert.showAlert(with:  "LOGIN FIELD", message: "please same password", on: self)
-            }
-        }else{
-            alert.showAlert(with: "LOGIN FIELD", message: "please inter name" , on: self)
-        }
-
-
-    }
-    
-    
-    //     helpers
+    //  -------------------------------   helpers -----------------------------------
     
     func configureUI(){
-        
 
         view.backgroundColor = UIColor(named: "Background")
-
         view.addSubview(signUpLebel)
         
         signUpLebel.centerX(inView: view , topAnchor: view.safeAreaLayoutGuide.topAnchor )
         signUpLebel.setDimensions(width: 128, height: 128)
-
-        
 
         let stack = UIStackView(arrangedSubviews: [nameController,emailController, passwordController, confirmPasswordController , signUpButton ])
         stack.axis = .vertical
@@ -172,6 +119,7 @@ class signUpViewController: UIViewController {
         view.addSubview(stack)
         stack.anchor(top : signUpLebel.bottomAnchor ,left: view.leftAnchor , right : view.rightAnchor ,paddingLeft: 32 , paddingRight: 32 )
         
+        
         view.addSubview(alreadyHaveAccountButton)
         alreadyHaveAccountButton.anchor(left : view.leftAnchor ,bottom: view.safeAreaLayoutGuide.bottomAnchor , right: view.rightAnchor , paddingLeft: 40 ,
                                         paddingRight: 40)
@@ -179,7 +127,61 @@ class signUpViewController: UIViewController {
         
     }
     
+    // ------------------------- selecters ------------------------
     
+    @objc func handleShowLogin(){
+        
+        navigationController?.pushViewController(LoginVC(), animated: true)
+    }
+    
+    
+    @objc func handleSignUp(){
+      
+        sginUp()
+        
+    }
+    
+//     functions
+    
+    
+    func sginUp() {
+        guard let email =  emailTextField.text else{return }
+        guard let password =  passwordTextField.text else{return }
+        guard let name =  nameTextField.text else{return }
+        guard let confirmPassword =  confirmPasswordTextField.text else{return }
+
+
+        if (name != "" && name != nil )
+
+
+        {
+            if(password == confirmPassword){
+                //
+                authService.signUpWithEmail(email: email, password: password, displayName: name) { wasRegisterd, error  in
+                    if let error = error {
+                        
+                        
+                        
+                         self.alert.showAlert(with: "LOGIN FIELD", message: error.localizedDescription, on: self)
+                       
+                        
+                        return
+                    }
+                
+                    print ("wasRegisterd" , wasRegisterd)
+                    self.navigationController?.popViewController(animated: true)
+                }
+            }else {
+                alert.showAlert(with:  "LOGIN FIELD", message: "please same password", on: self)
+                
+            }
+       
+        }else{
+            alert.showAlert(with: "LOGIN FIELD", message: "please inter name" , on: self)
+           
+        }
+     
+    }
     
     @objc func dismissAlert(){
         

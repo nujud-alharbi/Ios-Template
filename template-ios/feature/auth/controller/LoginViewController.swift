@@ -10,11 +10,11 @@ import FirebaseAuth
 import FirebaseFirestore
 
 class LoginVC: UIViewController {
-    
-   
+    //    ------------------- properties ---------------------------
     
     let alert =  Alert()
     let authService = AuthService()
+    private var agreeIconClick  = false
     
     private let loginLebel : UILabel = {
         let label = UILabel()
@@ -23,7 +23,7 @@ class LoginVC: UIViewController {
         label.font = UIFont.boldSystemFont(ofSize: 30)
         return label
     }()
-
+    
     private lazy var emailController : UIView = {
         let image = UIImage(systemName: "envelope.fill")
         let view = Utilities().inputContainerView(withImage: image! , textField: emailTextField)
@@ -48,7 +48,7 @@ class LoginVC: UIViewController {
         tf.isSecureTextEntry = true
         return tf
     }()
-
+    
     private let loginButton : UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("login", for: .normal)
@@ -60,10 +60,6 @@ class LoginVC: UIViewController {
         button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         return button
     }()
-    
-    
-    
-    
     private let alreadyHaveAccountButton : UIButton = {
         let button = Utilities().attributedButton("Dont have an account? ", " SingUp")
         button.addTarget(self, action: #selector(handleShowLogin), for: .touchUpInside)
@@ -118,30 +114,49 @@ class LoginVC: UIViewController {
         return button
     }()
     
-    let checkbox = CircularCheckBox(frame: CGRect(x: 50 , y: 420, width: 18 , height: 18))
- 
-    //     lifcycle
+    
+    let image :UIImageView = {
+        
+        let image = UIImageView()
+        image.contentMode = .scaleAspectFit
+        image.image = UIImage(systemName: "checkmark")
+        image.tintColor = .black
+        image.isHidden = true
+        
+        image.setDimensions(width: 24, height: 24)
+        
+        return image
+        
+    }()
+    
+    
+    private var checkBoxRemmberMe :CircularCheckBox = {
+        
+        let view = CircularCheckBox()
+        return view
+        
+    }()
+    
+
+    //  ------------------   lifcycle -----------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        let lable = UILabel (frame: CGRect(x: 76, y: 394, width: 200, height: 70))
-        lable.text = "Rember me"
-        lable.font = UIFont.boldSystemFont(ofSize: 13)
-        lable.textColor = .systemGray2
-        view.addSubview(lable)
-        view.addSubview(checkbox)
-       
-      }
+        
+        checkAndAdd()
+        checkBoxRemmberMe.addSubview(image)
+        
+    }
     
     
-
+    
     //    selecters
     
     @objc func handleShowLogin(){
         navigationController?.pushViewController(signUpViewController(), animated: true)
     }
-
-            
+    
+    
     
     
     
@@ -170,15 +185,15 @@ class LoginVC: UIViewController {
             return
             
         }
-        }
-        
+    }
+    
     
     
     //     helpers
     
     func configureUI(){
         
-
+        
         view.backgroundColor = UIColor(named: "Background")
         
         view.addSubview(loginLebel)
@@ -187,16 +202,16 @@ class LoginVC: UIViewController {
         
         
         let stack = UIStackView(arrangedSubviews: [emailController,
-        passwordController,loginButton ])
+                                                   passwordController,loginButton ])
         stack.axis = .vertical
         stack.spacing = 20
         stack.distribution = .fillEqually
         view.addSubview(stack)
         stack.anchor(top : loginLebel.bottomAnchor ,left: view.leftAnchor , right : view.rightAnchor,paddingLeft: 38 , paddingRight: 38)
-       
+        
         
         let stackView = UIStackView(arrangedSubviews: [forgotLebel ,
-        signwithPhoneButton ,signwithGoogleButton , signwithAppleButton])
+                                                       signwithPhoneButton ,signwithGoogleButton , signwithAppleButton])
         stackView.axis = .vertical
         stackView.spacing = 15
         stackView.distribution = .fillEqually
@@ -205,13 +220,58 @@ class LoginVC: UIViewController {
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 450),
             stackView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -70),
-//          stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            //          stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             stackView.heightAnchor.constraint(equalToConstant: 230)
         ])
-
+        
+        
+        checkBoxRemmberMe = CircularCheckBox(frame: CGRect(x: 50 , y: 420, width: 18 , height: 18))
+        view.addSubview(checkBoxRemmberMe)
+        
+        
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(didTabCheckBox))
+        checkBoxRemmberMe.addGestureRecognizer(gesture)
+        
+        
+        let lable = UILabel (frame: CGRect(x: 76, y: 394, width: 200, height: 70))
+        lable.text = "Rember me"
+        lable.font = UIFont.boldSystemFont(ofSize: 13)
+        lable.textColor = .systemGray2
+        view.addSubview(lable)
+    
         view.addSubview(alreadyHaveAccountButton)
         alreadyHaveAccountButton.anchor(left : view.leftAnchor ,bottom: view.safeAreaLayoutGuide.bottomAnchor , right: view.rightAnchor , paddingLeft: 40 , paddingRight: 40)
     }
     
+    //    ------------------ remmber me-------------------------------------
+    @objc func didTabCheckBox(){
+        
+        if(agreeIconClick == false){
+            image.isHidden = false
+            agreeIconClick = true
+            UserDefaults.standard.set("1", forKey: "remmber")
+            UserDefaults.standard.set(emailTextField.text!, forKey: "email")
+        }else {
+            checkBoxRemmberMe.backgroundColor = .systemBackground
+            image.isHidden = true
+            agreeIconClick = false
+            UserDefaults.standard.set("2", forKey: "remmber")
+        }
     }
+    
+    func checkAndAdd (){
+        if  UserDefaults.standard.string(forKey :  "remmber") == "1"{
+            image.isHidden = false
+            agreeIconClick = true
+            self.emailTextField.text = UserDefaults.standard.string(forKey :  "email") ?? ""
+            
+        }else{
+            image.isHidden = true
+            agreeIconClick = false
+            
+        }
+        
+    }
+    
+}
