@@ -163,36 +163,14 @@ class LoginVC: UIViewController {
     
     
     @objc func handleLogin()  {
-                if let email = emailTextField.text, email.isEmpty == false,
-                let password = passwordTextField.text, password.isEmpty == false {
-                Auth.auth().signIn(withEmail: email, password: password) { result, error in
-                if error == nil {
-                                  // go to main vc
-                let vc = UINavigationController(rootViewController: signUpViewController())
-                vc.modalTransitionStyle = .crossDissolve
-                vc.modalPresentationStyle = .fullScreen
-                self.present(vc, animated: true, completion: nil)
-                } else {
-                print(error?.localizedDescription)
-                }
-                }
-                }
-                guard let email =  emailTextField.text else{return }
-                guard let password =  passwordTextField.text else{return }
-        
-                if (email != "" && email != nil) {
-                authService.LoginWithEmail(email: email, password: password) { wasRegisterd, error  in
-                if let error = error {
-                self.alert.showAlert(with: "Error", message: error.localizedDescription, on: self)
-                return }
-                print ("wasRegisterd" , wasRegisterd)
-                self.navigationController?.popViewController(animated: true)
-                }
-                } else {
-             alert.showAlert(with:  "LOGIN FIELD", message: "Email Not Found", on: self)
-                        }
-        
-                }
+        print("Continue buttone tapped")
+        guard let email = emailTextField.text, !email.isEmpty,
+              let password = passwordTextField.text, !password.isEmpty else {
+            print("Missing field data")
+            return
+            
+        }
+        }
         
     
     
