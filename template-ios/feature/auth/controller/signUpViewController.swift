@@ -14,6 +14,7 @@ class signUpViewController: UIViewController {
 
     let alert =  Alert()
     let authService = AuthService()
+    let x = PhoneNumberController()
     
     private let signUpLebel : UILabel = {
         let label = UILabel()

@@ -142,7 +142,10 @@ class LoginVC: UIViewController {
     }
     
     @objc func handleWithPhone(){
-        navigationController?.popViewController(animated: true)
+      //  navigationController?.popViewController(animated: true)
+        navigationController?.pushViewController(PhoneNumberController(), animated: true)
+        
+        
     }
     
     @objc func handleWithGoogle(){
