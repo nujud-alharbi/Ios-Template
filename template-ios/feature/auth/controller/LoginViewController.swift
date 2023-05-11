@@ -156,14 +156,6 @@ class LoginVC: UIViewController {
         navigationController?.pushViewController(signUpViewController(), animated: true)
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
     @objc func handleWithPhone(){
         navigationController?.popViewController(animated: true)
     }
@@ -178,14 +170,25 @@ class LoginVC: UIViewController {
     
     
     @objc func handleLogin()  {
-        print("Continue buttone tapped")
-        guard let email = emailTextField.text, !email.isEmpty,
-              let password = passwordTextField.text, !password.isEmpty else {
-            print("Missing field data")
-            return
-            
+        
+        guard let email = emailTextField.text else {return}
+        
+        guard let password = passwordTextField.text else{return}
+        authService.LoginWithEmail(email: email, password: password) { result, error in
+            if let error = error {
+                print ("error \(error.localizedDescription)")
+                self.alert.showAlert(with: "Login falid", message: "please inter email and password" , on: self)
+                return
+            }
+           
+            let vc = UINavigationController(rootViewController: homeViewController())
+            vc.modalTransitionStyle = .crossDissolve
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+            print("success")
         }
-    }
+
+        }
     
     
     
