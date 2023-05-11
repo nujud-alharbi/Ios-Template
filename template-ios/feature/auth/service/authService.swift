@@ -14,22 +14,28 @@ import GoogleSignIn
 class AuthService {
     
     
-    //    var a = Auth.auth()
+    
+    func LoginWithEmail(email:String, password:String, complition :@escaping(Bool ,Error? ) -> Void){
+        
+        var userAuth = Auth.auth().signIn(withEmail: email, password: password , completion: { (result, error) in
+            if let error = error{
+                complition(false , error)
+                return
+            }
+            guard let resultUser = result?.user else{
+                complition(false , nil)
+                return
+            }
+            complition(true ,nil)
+        })
+    }
+
     func signUpWithEmail(email:String, password:String, displayName:String  , complition :@escaping(Bool ,Error? ) -> Void){
         
-        
-        
-        
-        
-        
         var userAuth =     Auth.auth().createUser(withEmail: email, password: password)
-        
-        
-        
-        
+       
         { (result, error) in
-            
-            
+
             if let error = error{
                 complition(false , error)
                 return
@@ -37,7 +43,6 @@ class AuthService {
             
             guard let resultUser = result?.user else{
                 complition(false , nil)
-                
                 return
                 
             }
@@ -47,20 +52,10 @@ class AuthService {
             changeRequest?.commitChanges { (error) in
                 complition(false , error)
                 return
-                
-                
-                
             }
             print(changeRequest?.displayName)
             
             complition(true ,nil)
-            
-            
-            
-            
-            
-            
-            
         }
     }
     func googleSignin(){
