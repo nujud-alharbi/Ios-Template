@@ -14,6 +14,7 @@ class LoginVC: UIViewController {
     
     let alert =  Alert()
     let authService = AuthService()
+    let service = AuthService()
     private var agreeIconClick  = false
     
     private let loginLebel : UILabel = {
@@ -164,7 +165,7 @@ class LoginVC: UIViewController {
     }
     
     @objc func handleWithGoogle(){
-        navigationController?.popViewController(animated: true)
+        service.googleSignin()
     }
     
     @objc func handleWithApple(){
