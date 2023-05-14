@@ -14,7 +14,24 @@ import GoogleSignIn
 class AuthService {
     
     
-    //    var a = Auth.auth()
+    
+    func LoginWithEmail(email:String, password:String, complition :@escaping(Bool ,Error? ) -> Void){
+        
+        var userAuth = Auth.auth().signIn(withEmail: email, password: password , completion: { (result, error) in
+            if let error = error{
+                complition(false , error)
+                return
+            }
+            guard let resultUser = result?.user else{
+                complition(false , nil)
+                return
+            }
+            complition(true ,nil)
+        })
+    }
+    
+   
+
     func signUpWithEmail(email:String, password:String, displayName:String  , complition :@escaping(Bool ,Error? ) -> Void){
         
         var userAuth =     Auth.auth().createUser(withEmail: email, password: password)
@@ -76,21 +93,19 @@ class AuthService {
     }
     
     
-    
-    func LoginWithEmail(email:String, password:String, complition :@escaping(Bool ,Error? ) -> Void){
+    func createAlertController(title: String, message: String) -> UIAlertController {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        var userAuth =     Auth.auth().createUser(withEmail: email, password: password)
-       
-        { (result, error) in
-            if let error = error{
-                complition(false , error)
-                return
-            }
-            guard let resultUser = result?.user else{
-                complition(false , nil)
-                return
-            }
-            complition(true ,nil)
+        let okAction = UIAlertAction(title: "Ok", style: .default) { (action) in
+            alert.dismiss(animated: true, completion: nil)
         }
+        
+        alert.addAction(okAction)
+     
+        
+        return alert 
+    }
+    func phonelogin (){
+        
     }
 }

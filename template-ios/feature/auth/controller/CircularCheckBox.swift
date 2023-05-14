@@ -8,7 +8,7 @@
 import UIKit
 
 final class CircularCheckBox: UIView {
-    
+    private var agreeIconClick  = false
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -21,13 +21,6 @@ final class CircularCheckBox: UIView {
     required init? (coder: NSCoder){
         fatalError()
     }
-    
-    func setChecked(_ isChecked: Bool) {
-       if isChecked {
-            backgroundColor = .systemBlue
-        }
-        else{
-            backgroundColor = .systemBackground
-        }
-    }
+
 }
+
