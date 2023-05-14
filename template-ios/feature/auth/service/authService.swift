@@ -89,4 +89,7 @@ class AuthService {
         }
         //    public func
     }
+    func phonelogin (){
+        
+    }
 }
