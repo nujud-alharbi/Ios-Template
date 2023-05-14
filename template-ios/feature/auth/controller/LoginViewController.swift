@@ -50,17 +50,15 @@ class LoginVC: UIViewController {
         return tf
     }()
     
-    private let loginButton : UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("login", for: .normal)
-        button.backgroundColor = .black
-        button.heightAnchor.constraint(equalToConstant: 45).isActive = true
-        button.layer.cornerRadius = 5
-        button.tintColor = .white
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
-        button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
-        return button
+    private let loginButton : CustomButton = {
+        let authButton = CustomButton(title: "login", comment : "String")
+        authButton.configuration = .filled()
+        authButton.configuration?.baseBackgroundColor = UIColor(named: "buttonColor")
+        authButton.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
+        return authButton
     }()
+
+    
     private let alreadyHaveAccountButton : UIButton = {
         let button = Utilities().attributedButton("Dont have an account? ", " SingUp")
         button.addTarget(self, action: #selector(handleShowLogin), for: .touchUpInside)
@@ -70,53 +68,31 @@ class LoginVC: UIViewController {
     let forgotPasswordbuttone : CustomButton  = {
         let authButton = CustomButton(title: "Forgot paasword ?", comment : "String")
          authButton.configuration = .filled()
-         //authButton.configuration?.baseBackgroundColor = UIColor.systemGray5
          authButton.tintColor = .black
          authButton.addTarget(self, action: #selector(forgotPasswordButtone), for: .touchUpInside)
          return authButton
 }()
+
     
-    
-    
-    
-    
-    private let signwithPhoneButton : UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("sign in with phone", for: .normal)
-        button.backgroundColor = .systemBackground
-        button.backgroundColor = .systemGray6
-        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        button.layer.cornerRadius = 9
-        button.layer.masksToBounds = true;
-        button.tintColor = .black
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
-        button.addTarget(self, action: #selector(handleWithPhone), for: .touchUpInside)
-        return button
+    private let signwithPhoneButton : CustomButtonStyle = {
+        let authButton = CustomButtonStyle(title: "sign in with Phone", comment : "String")
+        authButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        authButton.addTarget(self, action: #selector(handleWithPhone), for: .touchUpInside)
+        return authButton
     }()
     
-    private let signwithGoogleButton : UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("sign in with Google", for: .normal)
-        button.backgroundColor = .systemGray6
-        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        button.layer.cornerRadius = 9
-        button.layer.masksToBounds = true;
-        button.tintColor = .black
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
-        button.addTarget(self, action: #selector(handleWithGoogle), for: .touchUpInside)
-        return button
+    private let signwithGoogleButton : CustomButtonStyle = {
+        let authButton = CustomButtonStyle(title: "sign in with Google", comment : "String")
+        authButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        authButton.addTarget(self, action: #selector(handleWithGoogle), for: .touchUpInside)
+        return authButton
     }()
     
-    private let signwithAppleButton : UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("sign in with Apple", for: .normal)
-        button.backgroundColor = .systemGray6
-        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        button.layer.cornerRadius = 9
-        button.tintColor = .black
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
-        button.addTarget(self, action: #selector(handleWithApple), for: .touchUpInside)
-        return button
+    private let signwithAppleButton : CustomButtonStyle = {
+        let authButton = CustomButtonStyle(title: "sign in with Apple", comment : "String")
+        authButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        authButton.addTarget(self, action: #selector(handleWithApple), for: .touchUpInside)
+        return authButton
     }()
     
     
@@ -128,7 +104,7 @@ class LoginVC: UIViewController {
         image.tintColor = .black
         image.isHidden = true
         
-        image.setDimensions(width: 24, height: 24)
+        image.setDimensions(width: 20, height: 20)
         
         return image
         
@@ -147,7 +123,6 @@ class LoginVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        
         checkAndAdd()
         checkBoxRemmberMe.addSubview(image)
         
@@ -211,14 +186,12 @@ class LoginVC: UIViewController {
         
         
         view.backgroundColor = UIColor(named: "Background")
-        
         view.addSubview(loginLebel)
         loginLebel.centerX(inView: view , topAnchor: view.safeAreaLayoutGuide.topAnchor )
         loginLebel.setDimensions(width: 128, height: 128)
         
         
-        let stack = UIStackView(arrangedSubviews: [emailController,
-                                                   passwordController,loginButton ])
+        let stack = UIStackView(arrangedSubviews: [emailController, passwordController,loginButton ])
         stack.axis = .vertical
         stack.spacing = 20
         stack.distribution = .fillEqually
@@ -229,12 +202,12 @@ class LoginVC: UIViewController {
         let stackView = UIStackView(arrangedSubviews: [forgotPasswordbuttone ,
         signwithPhoneButton ,signwithGoogleButton , signwithAppleButton])
         stackView.axis = .vertical
-        stackView.spacing = 15
+        stackView.spacing = 17
         stackView.distribution = .fillEqually
         view.addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 450),
+            stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 470),
             stackView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -70),
             //          stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -242,7 +215,7 @@ class LoginVC: UIViewController {
         ])
         
         
-        checkBoxRemmberMe = CircularCheckBox(frame: CGRect(x: 50 , y: 420, width: 18 , height: 18))
+        checkBoxRemmberMe = CircularCheckBox(frame: CGRect(x: 50 , y: 430, width: 18 , height: 18))
         view.addSubview(checkBoxRemmberMe)
         
         
@@ -250,7 +223,7 @@ class LoginVC: UIViewController {
         checkBoxRemmberMe.addGestureRecognizer(gesture)
         
         
-        let lable = UILabel (frame: CGRect(x: 76, y: 394, width: 200, height: 70))
+        let lable = UILabel (frame: CGRect(x: 76, y: 405, width: 200, height: 70))
         lable.text = "Rember me"
         lable.font = UIFont.boldSystemFont(ofSize: 13)
         lable.textColor = .systemGray2
@@ -286,8 +259,7 @@ class LoginVC: UIViewController {
             image.isHidden = true
             agreeIconClick = false
             
-        }
-        
+    }
     }
     
-}
+    }
