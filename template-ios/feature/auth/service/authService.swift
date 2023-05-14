@@ -101,7 +101,11 @@ class AuthService {
         }
         
         alert.addAction(okAction)
+     
         
-        return alert
+        return alert 
+    }
+    func phonelogin (){
+        
     }
 }
