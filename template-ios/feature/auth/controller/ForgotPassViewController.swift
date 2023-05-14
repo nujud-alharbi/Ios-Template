@@ -57,8 +57,7 @@ class ForgotPassViewController: UIViewController {
                 return
                 
             }
-//            self.alert.showAlert(with: "OK ", message: "password reset email has been sent" , on: self)
-//            return
+            self.navigationController?.pushViewController(LoginVC(), animated: true)
         }
         }
     
