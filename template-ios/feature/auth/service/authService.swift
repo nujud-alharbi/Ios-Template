@@ -29,6 +29,8 @@ class AuthService {
             complition(true ,nil)
         })
     }
+    
+   
 
     func signUpWithEmail(email:String, password:String, displayName:String  , complition :@escaping(Bool ,Error? ) -> Void){
         
@@ -88,6 +90,20 @@ class AuthService {
             }
         }
         //    public func
+    }
+    
+    
+    func createAlertController(title: String, message: String) -> UIAlertController {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "Ok", style: .default) { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        }
+        
+        alert.addAction(okAction)
+     
+        
+        return alert 
     }
     func phonelogin (){
         

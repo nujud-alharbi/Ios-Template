@@ -66,15 +66,19 @@ class LoginVC: UIViewController {
         button.addTarget(self, action: #selector(handleShowLogin), for: .touchUpInside)
         return button
     }()
+
+    let forgotPasswordbuttone : CustomButton  = {
+        let authButton = CustomButton(title: "Forgot paasword ?", comment : "String")
+         authButton.configuration = .filled()
+         //authButton.configuration?.baseBackgroundColor = UIColor.systemGray5
+         authButton.tintColor = .black
+         authButton.addTarget(self, action: #selector(forgotPasswordButtone), for: .touchUpInside)
+         return authButton
+}()
     
-    private let forgotLebel : UILabel = {
-        let label = UILabel()
-        label.text = "Forgot paasword ?"
-        label.tintColor = .black
-        label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textAlignment = .center
-        return label
-    }()
+    
+    
+    
     
     private let signwithPhoneButton : UIButton = {
         let button = UIButton(type: .system)
@@ -194,6 +198,11 @@ class LoginVC: UIViewController {
 
         }
     
+    @objc func forgotPasswordButtone (){
+       navigationController?.pushViewController(ForgotPassViewController(), animated: true)
+        
+    }
+    
     
     
     //     helpers
@@ -217,8 +226,8 @@ class LoginVC: UIViewController {
         stack.anchor(top : loginLebel.bottomAnchor ,left: view.leftAnchor , right : view.rightAnchor,paddingLeft: 38 , paddingRight: 38)
         
         
-        let stackView = UIStackView(arrangedSubviews: [forgotLebel ,
-                                                       signwithPhoneButton ,signwithGoogleButton , signwithAppleButton])
+        let stackView = UIStackView(arrangedSubviews: [forgotPasswordbuttone ,
+        signwithPhoneButton ,signwithGoogleButton , signwithAppleButton])
         stackView.axis = .vertical
         stackView.spacing = 15
         stackView.distribution = .fillEqually
