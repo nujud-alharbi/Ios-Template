@@ -35,7 +35,7 @@ class ForgotPassViewController: UIViewController {
     let sendButton : CustomButton  = {
     let authButton = CustomButton(title: "Send", comment : "String")
     authButton.configuration = .filled()
-    authButton.configuration?.baseBackgroundColor = UIColor(named: "buttonColor")
+    authButton.configuration?.baseBackgroundColor = UIColor(named: "Tint")
     authButton.addTarget(self, action: #selector(forgotPassButton), for: .touchUpInside)
     return authButton
 }()

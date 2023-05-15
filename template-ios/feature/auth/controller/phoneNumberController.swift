@@ -52,10 +52,10 @@ class PhoneNumberController : UIViewController{
     private let signUpButton : UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("done", for: .normal)
-        button.backgroundColor = .black
+        button.backgroundColor = UIColor(named: "Tint")
         button.heightAnchor.constraint(equalToConstant: 10).isActive = false
         button.layer.cornerRadius = 5
-        button.tintColor = .white
+        button.tintColor = UIColor(named: "Background")
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
         return button

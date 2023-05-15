@@ -31,7 +31,7 @@ class ThemeView: UIView {
         let StyleButton = UIButton()
         StyleButton.setImage(UIImage(systemName: "sun.max.fill"), for: .normal)
         StyleButton.setTitleColor(.blue, for: .normal)
-        StyleButton.tintColor = .blue
+        StyleButton.tintColor = UIColor(named: "Tint")
         StyleButton.frame = CGRect(x: 220, y: -130, width: 250, height: 500)
         //StyleButton.frame.size = CGSize(width: 20.0, height: 20.0)
         StyleButton.addTarget(self, action: #selector(toggleInterfaceStyle), for: .touchUpInside)

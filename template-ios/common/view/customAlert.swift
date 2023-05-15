@@ -26,7 +26,7 @@ class Alert {
     let alertView : UIView = {
         
         let alert = UIView()
-        alert.backgroundColor = .white
+        alert.backgroundColor = UIColor(named: "Background")
         alert.layer.masksToBounds = true
         alert.layer.cornerRadius = 12
         return alert
@@ -59,8 +59,8 @@ class Alert {
         let messageLabel = UILabel(frame: CGRect(x: 0, y: 80, width: alertView.frame.size.width, height: 70))
         messageLabel.numberOfLines = 0
         messageLabel.text = message
+        messageLabel.textColor = UIColor(named: "Tint")
         messageLabel.textAlignment = .center
-        
         alertView.addSubview(messageLabel)
         
         let button = UIButton(frame: CGRect(x: 0, y: alertView.frame.size.height-50, width: alertView.frame.size.width, height: 50))

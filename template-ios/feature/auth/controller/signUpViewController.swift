@@ -79,7 +79,7 @@ class signUpViewController: UIViewController {
         let authButton = CustomButton(title: "Sign Up", comment : "String")
                                         
     authButton.configuration = .filled()
-    authButton.configuration?.baseBackgroundColor = UIColor(named: "buttonColor")
+    authButton.configuration?.baseBackgroundColor = UIColor(named: "Tint")
     
     authButton.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
     return authButton

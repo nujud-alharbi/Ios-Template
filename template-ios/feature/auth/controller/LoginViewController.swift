@@ -53,7 +53,7 @@ class LoginVC: UIViewController {
     private let loginButton : CustomButton = {
         let authButton = CustomButton(title: "login", comment : "String")
         authButton.configuration = .filled()
-        authButton.configuration?.baseBackgroundColor = UIColor(named: "buttonColor")
+        authButton.configuration?.baseBackgroundColor = UIColor(named: "Tint")
         authButton.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         return authButton
     }()
@@ -68,8 +68,9 @@ class LoginVC: UIViewController {
     let forgotPasswordbuttone : CustomButton  = {
         let authButton = CustomButton(title: "Forgot paasword ?", comment : "String")
          authButton.configuration = .filled()
-         authButton.tintColor = .black
+        authButton.configuration?.baseBackgroundColor = UIColor(named: "Tint")
          authButton.addTarget(self, action: #selector(forgotPasswordButtone), for: .touchUpInside)
+
          return authButton
 }()
 
@@ -101,7 +102,7 @@ class LoginVC: UIViewController {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
         image.image = UIImage(systemName: "checkmark")
-        image.tintColor = .black
+        image.tintColor = UIColor(named: "Tint")
         image.isHidden = true
         
         image.setDimensions(width: 20, height: 20)
