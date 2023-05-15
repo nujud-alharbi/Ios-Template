@@ -25,7 +25,7 @@ class homeViewController: UIViewController {
         let authButton = CustomButton(title: "authButton", comment : "String")
 
     authButton.configuration = .filled()
-   authButton.configuration?.baseBackgroundColor = UIColor(named: "buttonColor")
+   authButton.configuration?.baseBackgroundColor = UIColor(named: "Tint")
       
     
     authButton.addTarget(self, action: #selector(authButtonTapped), for: .touchUpInside)

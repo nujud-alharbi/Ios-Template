@@ -16,7 +16,7 @@ class Utilities {
      
         view.heightAnchor.constraint(equalToConstant: 50).isActive = true
         imageView.image = image
-        imageView.tintColor = .black
+        imageView.tintColor = UIColor(named: "Tint")
         view.addSubview(imageView)
         imageView.anchor(left : view.leftAnchor , bottom: view.bottomAnchor , paddingLeft:  8 , paddingBottom: 8)
         
@@ -41,9 +41,9 @@ class Utilities {
         
         let tf = UITextField()
         tf.placeholder = placeholder
-        tf.textColor = .black
+        tf.textColor = UIColor(named: "Tint")
         tf.font = UIFont.systemFont(ofSize: 16)
-        tf.attributedPlaceholder = NSAttributedString(string: placeholder , attributes: [NSAttributedString.Key.foregroundColor : UIColor.systemGray3])
+        tf.attributedPlaceholder = NSAttributedString(string: placeholder , attributes: [NSAttributedString.Key.foregroundColor : UIColor(named: "Tint")])
         return tf
     
     }
@@ -54,10 +54,10 @@ class Utilities {
         let button = UIButton(type: .system)
         
         let attributedTitle = NSMutableAttributedString(string: firstPart , attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16),
-                                                                                         NSAttributedString.Key.foregroundColor : UIColor.black])
+                                                                                         NSAttributedString.Key.foregroundColor : UIColor(named: "Tint")])
         
         attributedTitle.append(NSAttributedString(string: secondPart ,attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 16),
-                                                                                   NSAttributedString.Key.foregroundColor : UIColor.black] ))
+                                                                                   NSAttributedString.Key.foregroundColor : UIColor(named: "Tint")] ))
         
         
         
